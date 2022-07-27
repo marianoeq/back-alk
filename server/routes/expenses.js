@@ -3,7 +3,7 @@ const router = express.Router();
 
 import { getAllExpenses,createExpenses, updateExpenseById, deleteExpenseByID } from "../models/index.js";
 /* GET all expenses. */
-router.get("/", async (req, res) => {
+router.get("/expense", async (req, res) => {
   const allExpenses = await getAllExpenses();
   res.json({
     message: "Returning all expenses",
@@ -15,7 +15,7 @@ router.get("/", async (req, res) => {
 
 /*create expense*/
 
-router.post("/", async (req, res) => {
+router.post("/expense", async (req, res) => {
   const createExpense = await createExpenses(req.body);
   res.json({
     message: "Expense created",
@@ -26,7 +26,7 @@ router.post("/", async (req, res) => {
 
 /* Update expense by ID */
 
-router.put("/:id", async (req, res) => {
+router.put("/expense/:id", async (req, res) => {
   const id = req.params.id;
   const updateExpense = updateExpenseById(id, req.body);
   res.json({
@@ -38,7 +38,7 @@ router.put("/:id", async (req, res) => {
 
 
 /*Delete expense by id */
-router.delete("/:id", async(req, res) => {
+router.delete("/expense/:id", async(req, res) => {
   const id = req.params.id;
   const deleteExpenseId = await deleteExpenseByID(id) ;
   res.json({
