@@ -1,4 +1,4 @@
-import query from "../index.js";
+import db from "../index.js";
 
 const sqlString = `CREATE TABLE IF NOT EXISTS 
 expenses (id SERIAL PRIMARY KEY,
